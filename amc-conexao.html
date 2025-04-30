@@ -44,7 +44,7 @@
     </style>
   </head>
   <body>
-    <h1>CONEXÃO TUFI DUEK</h1>
+    <h1 id="title">CONEXÃO</h1>
 
     <p>
       Sendo os aplicativos "Conexão" (Conexão <b>CLC</b>, Conexão <b>Colcci</b>,
@@ -61,5 +61,27 @@
       style="flex: 1; padding-bottom: 24px"
       type="text/html"
     ></object>
+
+    <script>
+      const params = new URLSearchParams(document.location.search);
+      const appId = params.get('appId');
+      const nameRelation = {
+        clc: 'Conexão CLC',
+        colcci: 'Conexão Colcci',
+        colccisport: 'Conexão Colcci Sport',
+        forum: 'Conexão Forum',
+        isy: 'Conexão Isy',
+        lcecci: "Conexão L'Cecci",
+        oasis: 'Conexão Oasis',
+        open: 'Conexão Open',
+        skazi: 'Conexão Skazi',
+        sommer: 'Conexão Sommer',
+        triton: 'Conexão Triton',
+        tufiduek: 'Conexão Tufi Duek',
+        replay: 'Conexão Replay Jeans',
+      };
+      const title = document.getElementById('title');
+      title.innerText = nameRelation[appId] || 'Conexão';
+    </script>
   </body>
 </html>
