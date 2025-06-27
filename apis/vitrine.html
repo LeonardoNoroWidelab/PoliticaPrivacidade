@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>API Docs</title>
+      <title>vitrine</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -26,7 +26,8 @@
       
 <h1 id="-vitrine">👗 Vitrine </h1>
 <p>Documentação da API do módulo <strong>Vitrine</strong> e <strong>Vitrine VM</strong>, com rotas voltadas para cadsatro de agendamento das vitrines pelo usuário VM e busca dos agendamentos pelo usuário vendedor.</p>
-<h2 id="-cadastro-de-agendamento-vitrine">🆕 Cadastro de agendamento vitrine </h2>
+<h2 id="-vitrine-vm">🧑‍🎨 Vitrine VM </h2>
+<h3 id="-cadastro-de-agendamento-vm">🆕 Cadastro de agendamento (VM) </h3>
 <p><code>POST</code><br>
 <code>/api/agendas</code></p>
 <p><strong>📝 Requisição:</strong></p>
@@ -88,45 +89,233 @@
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
-</code></pre><hr>
-<h2 id="-buscar-agendamentos-cadastrados">🔎 Buscar agendamentos cadastrados </h2>
-<p>Na busca de vitrines incluir o filtro de <strong>appId</strong> e <strong>tipoId</strong> para buscar apenas os looks, produtos e imagens desse tipo de loja.</p>
+</code></pre><h3 id="-buscar-agendamentos-vm">🔎 Buscar agendamentos (VM) </h3>
+<p>Na busca de vitrines ter o filtro de <strong>appId</strong>. Buscar todos os agendamentos cadastrados para esse appId.</p>
 <p><code>GET</code><br>
-<code>/api/agendas?appid=open&amp;tipoid=1</code></p>
+<code>/api/agendas?appid=open</code></p>
 <p><strong>📄 Resposta:</strong></p>
 <pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
-  <span class="token property">"appid"</span><span class="token operator">:</span> <span class="token string">"open"</span><span class="token punctuation">,</span>
-  <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"VITRINE LOOK 1"</span><span class="token punctuation">,</span>
-  <span class="token property">"datainicio"</span><span class="token operator">:</span> <span class="token string">"2025-07-21"</span><span class="token punctuation">,</span>
-  <span class="token property">"datafim"</span><span class="token operator">:</span> <span class="token string">"2025-07-27"</span><span class="token punctuation">,</span>
-  <span class="token property">"urlManual"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/manual.pdf"</span><span class="token punctuation">,</span>
+  <span class="token property">"agendas"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"appid"</span><span class="token operator">:</span> <span class="token string">"open"</span><span class="token punctuation">,</span>
+      <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"VITRINE LOOK 1"</span><span class="token punctuation">,</span>
+      <span class="token property">"datainicio"</span><span class="token operator">:</span> <span class="token string">"2025-07-21"</span><span class="token punctuation">,</span>
+      <span class="token property">"datafim"</span><span class="token operator">:</span> <span class="token string">"2025-07-27"</span><span class="token punctuation">,</span>
+      <span class="token property">"urlManual"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/manual.pdf"</span><span class="token punctuation">,</span>
+      <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 
-  <span class="token property">"produtos"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"VESTIDO COM APLICAÇÃO PRETO"</span><span class="token punctuation">,</span>
-      <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"442201321"</span><span class="token punctuation">,</span>
-      <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900112868716|7900112868723|7900112868730|7900112868747|7900112868754|"</span><span class="token punctuation">,</span>
-      <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p1.jpg"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>
-      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"CAMISETA PRETO"</span><span class="token punctuation">,</span>
-      <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"442201123"</span><span class="token punctuation">,</span>
-      <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900112868712|7900112868723|7900112868734|7900112868745|7900112868756|"</span><span class="token punctuation">,</span>
-      <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p3.jpg"</span>
+      <span class="token property">"produtos"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"VESTIDO COM APLICAÇÃO PRETO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"442201321"</span><span class="token punctuation">,</span>
+          <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900112868716|7900112868723|7900112868730|7900112868747|7900112868754|"</span><span class="token punctuation">,</span>
+          <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p1.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"CAMISETA PRETO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"442201123"</span><span class="token punctuation">,</span>
+          <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900112868712|7900112868723|7900112868734|7900112868745|7900112868756|"</span><span class="token punctuation">,</span>
+          <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p3.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"SAIA COM APLICAÇÃO PRETO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"82200685"</span><span class="token punctuation">,</span>
+          <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900179117475|7900179117482|7900179117499|7900179117505|7900179117512|"</span><span class="token punctuation">,</span>
+          <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p2.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+      <span class="token property">"looks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/l1.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"referencias"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"442201321"</span><span class="token punctuation">,</span> <span class="token string">"442201123"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"look"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/l2.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"referencias"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"display"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+      <span class="token property">"imagens"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"urlimagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/i1.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"urlimagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/i2.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"tiposid"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="-vitrine-vendedor">🤑 Vitrine Vendedor </h2>
+<h3 id="-buscar-agendamentos-vendedor">🔎 Buscar agendamentos (vendedor) </h3>
+<p>Na busca de agendamentos ter o filtro de <strong>appId</strong> e <strong>tipoId</strong> para buscar apenas as informações desse tipo de loja.<br>
+Passar o CNPJ da loja para a API saber quais agendamentos ainda faltam ser feitos.<br>
+Quando um vendedor buscar a lista de agendamentos, a API deve selecionar apenas os agendamentos que <strong>não</strong> tem uma vitrine dessa loja cadastrada.</p>
+<p>Por exemplo:</p>
+<blockquote>
+<p>Estão cadastrados os agendamentos A1, A2, A3<br>
+A Loja X tem as seguintes vitrines cadastradas:</p>
+<ul>
+<li>Vitrine 1 Cadastrada, agendamento A1</li>
+<li>Vitrine 2 Rascunho, agendamento A2</li>
+</ul>
+<p>Quando o vendedor buscar os agendamentos pela loja X, vai retornar o agendamneto A3 (nenhuma vitrine) e A2 (uma vitrine como rascunho)<br>
+Lembrando de filtrar também os agendamentos pelo <strong>tipoId</strong> e <strong>appId</strong> que será passado pelo vendedor.</p>
+</blockquote>
+<p><code>GET</code><br>
+<code>/api/agendas/{cnpj}?appid=open&amp;tipoid=1</code></p>
+<p><strong>📄 Resposta:</strong></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"agendas"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"appid"</span><span class="token operator">:</span> <span class="token string">"open"</span><span class="token punctuation">,</span>
+      <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"VITRINE LOOK 1"</span><span class="token punctuation">,</span>
+      <span class="token property">"datainicio"</span><span class="token operator">:</span> <span class="token string">"2025-07-21"</span><span class="token punctuation">,</span>
+      <span class="token property">"datafim"</span><span class="token operator">:</span> <span class="token string">"2025-07-27"</span><span class="token punctuation">,</span>
+      <span class="token property">"urlManual"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/manual.pdf"</span><span class="token punctuation">,</span>
+
+      <span class="token property">"produtos"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"VESTIDO COM APLICAÇÃO PRETO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"442201321"</span><span class="token punctuation">,</span>
+          <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900112868716|7900112868723|7900112868730|7900112868747|7900112868754|"</span><span class="token punctuation">,</span>
+          <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p1.jpg"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"CAMISETA PRETO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"442201123"</span><span class="token punctuation">,</span>
+          <span class="token property">"codigos"</span><span class="token operator">:</span> <span class="token string">"|7900112868712|7900112868723|7900112868734|7900112868745|7900112868756|"</span><span class="token punctuation">,</span>
+          <span class="token property">"imagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/p3.jpg"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+      <span class="token property">"looks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/l1.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"referencias"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"442201321"</span><span class="token punctuation">,</span> <span class="token string">"442201123"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"look"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+      <span class="token property">"imagens"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"urlimagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/i1.jpg"</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-cadastro-de-vitrine-vendedor">🆕 Cadastro de vitrine (vendedor) </h3>
+<p><code>POST</code><br>
+<code>/api/vitrine</code></p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"VITRINE LOOK 1 ANTIOQUIA"</span><span class="token punctuation">,</span>
+  <span class="token property">"userid"</span><span class="token operator">:</span> <span class="token string">"open-leonardo.noro@widelab.com.br"</span><span class="token punctuation">,</span>
+  <span class="token property">"lojacnpj"</span><span class="token operator">:</span> <span class="token string">"14780238000272"</span><span class="token punctuation">,</span>
+  <span class="token property">"lojaNome"</span><span class="token operator">:</span> <span class="token string">"Loja de teste em Desenvolvimento"</span><span class="token punctuation">,</span>
+  <span class="token property">"rascunho"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token property">"idAgendamento"</span><span class="token operator">:</span> <span class="token number">14</span><span class="token punctuation">,</span>
+
+  <span class="token property">"images"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"https://aws.com/img1.jpg"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 
   <span class="token property">"looks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/l1.jpg"</span><span class="token punctuation">,</span>
-      <span class="token property">"referencias"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"442201321"</span><span class="token punctuation">,</span> <span class="token string">"442201123"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-      <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"look"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-
-  <span class="token property">"imagens"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/lv1.jpg"</span><span class="token punctuation">,</span>
+      <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"look"</span><span class="token punctuation">,</span>
+      <span class="token property">"products"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"codigo"</span><span class="token operator">:</span> <span class="token string">"7900179289219"</span><span class="token punctuation">,</span>
+          <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"CHEMISIER LINHO ESTAMPADO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"132.22.00016"</span><span class="token punctuation">,</span>
+          <span class="token property">"pertenceVitrine"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"codigo"</span><span class="token operator">:</span> <span class="token string">"7900179289123"</span><span class="token punctuation">,</span>
+          <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"CAMISETA ESTAMPADO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"1223.44.00099"</span><span class="token punctuation">,</span>
+          <span class="token property">"pertenceVitrine"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span>
-      <span class="token property">"urlimagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/i1.jpg"</span>
+      <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/dv1.jpg"</span><span class="token punctuation">,</span>
+      <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"display"</span><span class="token punctuation">,</span>
+      <span class="token property">"products"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"codigo"</span><span class="token operator">:</span> <span class="token string">"7900179289456"</span><span class="token punctuation">,</span>
+          <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"BONE PRETO"</span><span class="token punctuation">,</span>
+          <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"456.66.00078"</span><span class="token punctuation">,</span>
+          <span class="token property">"pertenceVitrine"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h3 id="-buscar-vitrines-cadastradas-vendedor">🔎 Buscar vitrines cadastradas (vendedor) </h3>
+<p><code>GET</code><br>
+<code>/api/vitrines/{cnpj}?mes=7&amp;ano=2025&amp;rascunho=false</code></p>
+<p>Filtro de rascunho (<em>true</em> ou <em>false</em>) opcional, assim como mes e ano</p>
+<pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
+  <span class="token property">"vitrines"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">9</span><span class="token punctuation">,</span>
+      <span class="token property">"createdAt"</span><span class="token operator">:</span> <span class="token string">"2024-11-08 18:03:44"</span><span class="token punctuation">,</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"VITRINE LOOK 1 ANTIOQUIA"</span><span class="token punctuation">,</span>
+      <span class="token property">"userid"</span><span class="token operator">:</span> <span class="token string">"open-leonardo.noro@widelab.com.br"</span><span class="token punctuation">,</span>
+      <span class="token property">"lojacnpj"</span><span class="token operator">:</span> <span class="token string">"14780238000272"</span><span class="token punctuation">,</span>
+      <span class="token property">"lojaNome"</span><span class="token operator">:</span> <span class="token string">"Loja de teste em Desenvolvimento"</span><span class="token punctuation">,</span>
+      <span class="token property">"rascunho"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">"idAgendamento"</span><span class="token operator">:</span> <span class="token number">14</span><span class="token punctuation">,</span>
+
+      <span class="token property">"imagens"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+          <span class="token property">"urlimagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/img1.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"createdAt"</span><span class="token operator">:</span> <span class="token string">"2024-11-08 18:03:44"</span><span class="token punctuation">,</span>
+          <span class="token property">"vitrineid"</span><span class="token operator">:</span> <span class="token number">9</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+      <span class="token property">"looks"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+          <span class="token property">"createdAt"</span><span class="token operator">:</span> <span class="token string">"2024-11-08 18:03:44"</span><span class="token punctuation">,</span>
+
+          <span class="token property">"urlImagem"</span><span class="token operator">:</span> <span class="token string">"https://aws.com/lv1.jpg"</span><span class="token punctuation">,</span>
+          <span class="token property">"tipo"</span><span class="token operator">:</span> <span class="token string">"look"</span><span class="token punctuation">,</span>
+          <span class="token property">"products"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+              <span class="token property">"createdAt"</span><span class="token operator">:</span> <span class="token string">"2024-11-08 18:03:44"</span><span class="token punctuation">,</span>
+              <span class="token property">"codigo"</span><span class="token operator">:</span> <span class="token string">"7900179289219"</span><span class="token punctuation">,</span>
+              <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"CHEMISIER LINHO ESTAMPADO"</span><span class="token punctuation">,</span>
+              <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"132.22.00016"</span><span class="token punctuation">,</span>
+              <span class="token property">"pertenceVitrine"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+              <span class="token property">"id"</span><span class="token operator">:</span> <span class="token number">31</span><span class="token punctuation">,</span>
+              <span class="token property">"createdAt"</span><span class="token operator">:</span> <span class="token string">"2024-11-08 18:03:44"</span><span class="token punctuation">,</span>
+              <span class="token property">"codigo"</span><span class="token operator">:</span> <span class="token string">"7900179289123"</span><span class="token punctuation">,</span>
+              <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"CAMISETA ESTAMPADO"</span><span class="token punctuation">,</span>
+              <span class="token property">"ref"</span><span class="token operator">:</span> <span class="token string">"1223.44.00099"</span><span class="token punctuation">,</span>
+              <span class="token property">"pertenceVitrine"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span>
+          <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
